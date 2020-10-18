@@ -8,7 +8,7 @@ steps:
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
      sed "s/APP_NAME/mlops/g" | \
-     sed "s/APP_IP_ADDRESS/$(gcloud compute addresses describe mlops --region us-central1 | grep 'address:'|sed 's|^address: ||')/g" | \
+     sed "s/APP_IP_ADDRESS/34.66.121.80/g" | \
      sed "s/COMMIT_SHA/${SHORT_SHA}/g" > kubernetes.yaml
 
 - name: 'gcr.io/cloud-builders/gcloud'
