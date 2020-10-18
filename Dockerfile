@@ -14,6 +14,7 @@ RUN git clone https://github.com/Amir22010/mlops-ml.git .
 
 # install requirements
 RUN pwd
+RUN ls
 RUN pip install -r requirements.txt
 
 # run server
