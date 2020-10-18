@@ -13,7 +13,7 @@ ENV PYTHONUNBUFFERED 1
 RUN git clone https://github.com/Amir22010/mlops-ml.git .
 
 # install requirements
-RUN pip install -r requirements.txt
+RUN pip install -r mlops-ml/requirements.txt
 
 # run server
 #CMD python manage.py runserver
