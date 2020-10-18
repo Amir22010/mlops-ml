@@ -1,0 +1,27 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - assets/original_data
+    outs:
+    - assets/preprocessed
+  featurize:
+    cmd: python src/featurize.py
+    deps:
+    - assets/preprocessed/train.csv
+    - src/preprocess.py
+    outs:
+    - assets/featurized/
+  train_test_eval:
+    cmd: python src/model.py
+    deps:
+    - assets/featurized
+    - src/model.py
+    params:
+    - model.random
+    - model.split
+    outs:
+    - assets/models
+    metrics:
+    - assets/eval/scores.json:
+        cache: false
